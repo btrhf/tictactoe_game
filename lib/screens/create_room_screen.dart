@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tictactoe_game/widgets/custom_text.dart';
+import 'package:tictactoe_game/widgets/custom_textfield.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   static String routeName = '/join-room';
@@ -10,6 +12,14 @@ class CreateRoomScreen extends StatefulWidget {
 }
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
+  final TextEditingController _nameController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _nameController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -22,7 +32,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomText(
+              const CustomText(
                 shadows: [
                   Shadow(
                     blurRadius: 40,
@@ -35,6 +45,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               SizedBox(
                 height: size.height * 0.08,
               ),
+              CustomTextField(
+                  controller: _nameController, hintText: 'Enter your nickname')
             ]),
       ),
     );
