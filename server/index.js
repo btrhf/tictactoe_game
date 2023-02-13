@@ -3,16 +3,15 @@ const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
 
-mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', false);
 
 const app = express();
 const port = process.env.PORT || 3000;
 var server = http.createServer(app);
-
 var io = require("socket.io")(server);
 
 const DB = 
-    "mongodb+srv://krish:Tester001@cluster0.mcmvfki.mongodb.net/?retryWrites=true&w=majority";
+    "mongodb+srv://krish:Tester001@cluster0.mcmvfki.mongodb.net/test";
 
 io.on("connection", (socket) => {
     console.log('Connected');
