@@ -1,5 +1,5 @@
 # TicTacToe Game
- A multiplayer TicTacToe game in Dart Flutter
+ A online multiplayer TicTacToe game in Dart Flutter
 
 
 #### "This App is WIP"
